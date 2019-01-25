@@ -13,5 +13,8 @@ public class PlayerMover : MonoBehaviour
         directionality = directionality.normalized * 0.05f; 
         this.transform.position += directionality;
     }
-
+    public void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        Debug.Log("Collided!");
+    }
 }

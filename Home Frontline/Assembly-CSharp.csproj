@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BasicEnemy.cs" />
+     <Compile Include="Assets\Scripts\BulletDeleter.cs" />
+     <Compile Include="Assets\Scripts\Manager.cs" />
      <Compile Include="Assets\Scripts\PlayerMover.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/kyon/Desktop/Unity/HomeFrontline/Home Frontline/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
