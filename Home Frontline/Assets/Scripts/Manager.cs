@@ -34,10 +34,10 @@ public class Manager : MonoBehaviour
     public IEnumerator MasterCR()
     {
         yield return null;
-        yield return GoStartDialogOne();
-        yield return GoSwitchCharacter();
-        yield return enemySpawner.BeginStageOne();
-        yield return GoStartDialogTwo();
+        //yield return GoStartDialogOne();
+        //yield return GoSwitchCharacter();
+        //yield return enemySpawner.BeginStageOne();
+        //yield return GoStartDialogTwo();
         yield return GoSwitchCharacter();
         yield return enemySpawner.BeginStageTwo();
     }

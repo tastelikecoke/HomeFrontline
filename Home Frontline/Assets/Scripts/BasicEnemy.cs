@@ -10,6 +10,7 @@ public class BasicEnemy : MonoBehaviour
 
     public Vector3 initialPosition;
     public Vector3 finalPosition;
+    public int color = 0;
 
     public int rolls = 32;
     public int rolldupes = 1;
@@ -69,7 +70,7 @@ public class BasicEnemy : MonoBehaviour
 
     public void SummonBullet(Vector3 spawnPoint, Vector3 velocity)
     {
-        Manager.Instance.bulletDeleter.MakeBullet(spawnPoint, velocity);
+        Manager.Instance.bulletDeleter.MakeBullet(spawnPoint, velocity, color);
     }
 
     void FixedUpdate()

@@ -7,8 +7,9 @@ public class BulletDeleter : MonoBehaviour
     public GameObject bullet;
     public List<GameObject> bulletList;
     public List<GameObject> deadBulletList;
+    public Sprite[] spriteChoices;
 
-    public void MakeBullet(Vector3 spawnPoint, Vector3 velocity)
+    public void MakeBullet(Vector3 spawnPoint, Vector3 velocity, int color = 0)
     {
         GameObject newBullet = null;
         if(deadBulletList.Count == 0)
@@ -24,6 +25,7 @@ public class BulletDeleter : MonoBehaviour
         newBullet.transform.position = spawnPoint;
         bulletList.Add(newBullet);
         newBullet.GetComponent<Rigidbody2D>().velocity = velocity;
+        newBullet.GetComponent<SpriteRenderer>().sprite = spriteChoices[color];
     }
 
     public void Update()

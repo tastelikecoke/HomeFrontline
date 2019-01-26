@@ -15,112 +15,128 @@ public class EnemySpawner : MonoBehaviour
         // First Stage Game!
         StartCoroutine(Manager.Instance.playerMover.Respawn(false));
         // two weak shows
-        GameObject enemy1 = Instantiate(enemyPrefab);
+        GameObject anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().color = 2;
         yield return new WaitForSeconds(4.0f);
-        GameObject enemy2 = Instantiate(scoutEnemyPrefab);
+        anyenemy = Instantiate(scoutEnemyPrefab);
+        anyenemy.GetComponent<ScoutEnemy>().color = 4;
         yield return new WaitForSeconds(4.0f);
 
         // first double
-        GameObject enemy3 = Instantiate(scoutEnemyPrefab);
-        enemy3.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-1f, 0, 0);
-        GameObject enemy4 = Instantiate(scoutEnemyPrefab);
-        enemy4.GetComponent<ScoutEnemy>().initialPosition += new Vector3(1f, 0, 0);
+        anyenemy = Instantiate(scoutEnemyPrefab);
+        anyenemy.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-1f, 0, 0);
+        anyenemy.GetComponent<ScoutEnemy>().color = 1;
+        anyenemy = Instantiate(scoutEnemyPrefab);
+        anyenemy.GetComponent<ScoutEnemy>().initialPosition += new Vector3(1f, 0, 0);
+        anyenemy.GetComponent<ScoutEnemy>().color = 4;
         yield return new WaitForSeconds(4.0f);
 
         // heavy double!
-        GameObject enemy5 = Instantiate(enemyPrefab);
-        enemy5.GetComponent<BasicEnemy>().initialPosition += new Vector3(-1f, 0, 0);
-        enemy5.GetComponent<BasicEnemy>().finalPosition += new Vector3(-1f, 0, 0);
-        GameObject enemy6 = Instantiate(enemyPrefab);
-        enemy6.GetComponent<BasicEnemy>().initialPosition += new Vector3(1f, 0, 0);
-        enemy6.GetComponent<BasicEnemy>().finalPosition += new Vector3(1f, 0, 0);
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().initialPosition += new Vector3(-1f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().finalPosition += new Vector3(-1f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().color = 3;
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().initialPosition += new Vector3(1f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().finalPosition += new Vector3(1f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().color = 2;
         yield return new WaitForSeconds(4.0f);
 
         // another heavy double? 
-        GameObject enemy7 = Instantiate(enemyPrefab);
-        enemy7.GetComponent<BasicEnemy>().initialPosition += new Vector3(-1.5f, 0, 0);
-        enemy7.GetComponent<BasicEnemy>().finalPosition += new Vector3(-1.5f, 0, 0);
-        enemy7.GetComponent<BasicEnemy>().rolls = 64;
-        enemy7.GetComponent<BasicEnemy>().rolldupes = 2;
-        enemy7.GetComponent<BasicEnemy>().gaps = 32f;
-        enemy7.GetComponent<BasicEnemy>().radiansOffset = 0.2f;
-        enemy7.GetComponent<BasicEnemy>().firetime = 1.28f;
-        GameObject enemy8 = Instantiate(enemyPrefab);
-        enemy8.GetComponent<BasicEnemy>().initialPosition += new Vector3(1.5f, 0, 0);
-        enemy8.GetComponent<BasicEnemy>().finalPosition += new Vector3(1.5f, 0, 0);
-        enemy8.GetComponent<BasicEnemy>().rolls = 64;
-        enemy8.GetComponent<BasicEnemy>().rolldupes = 2;
-        enemy8.GetComponent<BasicEnemy>().gaps = 32f;
-        enemy8.GetComponent<BasicEnemy>().radiansOffset = 0.2f;
-        enemy8.GetComponent<BasicEnemy>().sign = -1f;
-        enemy8.GetComponent<BasicEnemy>().firetime = 1.28f;
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().initialPosition += new Vector3(-1.5f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().finalPosition += new Vector3(-1.5f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().rolls = 64;
+        anyenemy.GetComponent<BasicEnemy>().rolldupes = 2;
+        anyenemy.GetComponent<BasicEnemy>().gaps = 32f;
+        anyenemy.GetComponent<BasicEnemy>().radiansOffset = 0.2f;
+        anyenemy.GetComponent<BasicEnemy>().firetime = 1.28f;
+        anyenemy.GetComponent<BasicEnemy>().color = 2;
+
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().initialPosition += new Vector3(1.5f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().finalPosition += new Vector3(1.5f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().rolls = 64;
+        anyenemy.GetComponent<BasicEnemy>().rolldupes = 2;
+        anyenemy.GetComponent<BasicEnemy>().gaps = 32f;
+        anyenemy.GetComponent<BasicEnemy>().radiansOffset = 0.2f;
+        anyenemy.GetComponent<BasicEnemy>().sign = -1f;
+        anyenemy.GetComponent<BasicEnemy>().firetime = 1.28f;
+        anyenemy.GetComponent<BasicEnemy>().color = 3;
 
         // heavy single!!
         yield return new WaitForSeconds(3.0f);
-        GameObject enemy9 = Instantiate(enemyPrefab);
-        enemy9.GetComponent<BasicEnemy>().rolls = 128;
-        enemy9.GetComponent<BasicEnemy>().rolldupes = 4;
-        enemy9.GetComponent<BasicEnemy>().firetime = 2.56f;
-        enemy9.GetComponent<BasicEnemy>().gaps = 64f;
-        enemy9.GetComponent<BasicEnemy>().radiansOffset = 0.1f;
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().rolls = 128;
+        anyenemy.GetComponent<BasicEnemy>().rolldupes = 4;
+        anyenemy.GetComponent<BasicEnemy>().firetime = 2.56f;
+        anyenemy.GetComponent<BasicEnemy>().gaps = 64f;
+        anyenemy.GetComponent<BasicEnemy>().radiansOffset = 0.1f;
+        anyenemy.GetComponent<BasicEnemy>().color = 5;
         yield return null;
 
         // disruptive double on heavy single...
         yield return new WaitForSeconds(3.5f);
-        GameObject enemy10 = Instantiate(enemyPrefab);
-        enemy10.GetComponent<BasicEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
-        enemy10.GetComponent<BasicEnemy>().finalPosition += new Vector3(-2.0f, 0, 0);
-        enemy10.GetComponent<BasicEnemy>().rolls = 64;
-        enemy10.GetComponent<BasicEnemy>().firetime = 2.56f;
-        enemy10.GetComponent<BasicEnemy>().rolldupes = 2;
-        enemy10.GetComponent<BasicEnemy>().gaps = 32f;
-        enemy10.GetComponent<BasicEnemy>().radiansOffset = 1.2f;
-        GameObject enemy11 = Instantiate(enemyPrefab);
-        enemy11.GetComponent<BasicEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
-        enemy11.GetComponent<BasicEnemy>().finalPosition += new Vector3(2.0f, 0, 0);
-        enemy11.GetComponent<BasicEnemy>().rolls = 64;
-        enemy11.GetComponent<BasicEnemy>().rolldupes = 2;
-        enemy11.GetComponent<BasicEnemy>().firetime = 2.56f;
-        enemy11.GetComponent<BasicEnemy>().gaps = 32f;
-        enemy11.GetComponent<BasicEnemy>().radiansOffset = 0.2f;
-        enemy11.GetComponent<BasicEnemy>().sign = -1f;
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().finalPosition += new Vector3(-2.0f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().rolls = 64;
+        anyenemy.GetComponent<BasicEnemy>().firetime = 2.56f;
+        anyenemy.GetComponent<BasicEnemy>().rolldupes = 2;
+        anyenemy.GetComponent<BasicEnemy>().gaps = 32f;
+        anyenemy.GetComponent<BasicEnemy>().radiansOffset = 1.2f;
+        anyenemy.GetComponent<BasicEnemy>().color = 2;
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().finalPosition += new Vector3(2.0f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().rolls = 64;
+        anyenemy.GetComponent<BasicEnemy>().rolldupes = 2;
+        anyenemy.GetComponent<BasicEnemy>().firetime = 2.56f;
+        anyenemy.GetComponent<BasicEnemy>().gaps = 32f;
+        anyenemy.GetComponent<BasicEnemy>().radiansOffset = 0.2f;
+        anyenemy.GetComponent<BasicEnemy>().sign = -1f;
+        anyenemy.GetComponent<BasicEnemy>().color = 4;
 
         // heavy single
         yield return new WaitForSeconds(4.0f);
-        GameObject enemy12 = Instantiate(enemyPrefab);
-        enemy12.GetComponent<BasicEnemy>().rolls = 128;
-        enemy12.GetComponent<BasicEnemy>().firetime = 2.56f;
-        enemy12.GetComponent<BasicEnemy>().rolldupes = 4;
-        enemy12.GetComponent<BasicEnemy>().gaps = 64f;
-        enemy12.GetComponent<BasicEnemy>().radiansOffset = 0.5f;
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().rolls = 128;
+        anyenemy.GetComponent<BasicEnemy>().firetime = 2.56f;
+        anyenemy.GetComponent<BasicEnemy>().rolldupes = 4;
+        anyenemy.GetComponent<BasicEnemy>().gaps = 64f;
+        anyenemy.GetComponent<BasicEnemy>().radiansOffset = 0.5f;
+        anyenemy.GetComponent<BasicEnemy>().color = 1;
 
         // continuous odd circles
         yield return new WaitForSeconds(4.0f);
-        GameObject enemy13 = Instantiate(enemyPrefab);
-        enemy13.GetComponent<BasicEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
-        enemy13.GetComponent<BasicEnemy>().finalPosition += new Vector3(2.0f, 0, 0);
-        enemy13.GetComponent<BasicEnemy>().rolls = 52;
-        enemy13.GetComponent<BasicEnemy>().rolldupes = 3;
-        enemy13.GetComponent<BasicEnemy>().gaps = 52f;
-        enemy13.GetComponent<BasicEnemy>().firetime = 1.56f;
-        enemy13.GetComponent<BasicEnemy>().sign = -1f;
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().finalPosition += new Vector3(2.0f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().rolls = 52;
+        anyenemy.GetComponent<BasicEnemy>().rolldupes = 3;
+        anyenemy.GetComponent<BasicEnemy>().gaps = 52f;
+        anyenemy.GetComponent<BasicEnemy>().firetime = 1.56f;
+        anyenemy.GetComponent<BasicEnemy>().sign = -1f;
+        anyenemy.GetComponent<BasicEnemy>().color = 0;
         yield return new WaitForSeconds(2.0f);
-        GameObject enemy14 = Instantiate(enemyPrefab);
-        enemy14.GetComponent<BasicEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
-        enemy14.GetComponent<BasicEnemy>().finalPosition += new Vector3(-2.0f, 0, 0);
-        enemy14.GetComponent<BasicEnemy>().rolls = 52;
-        enemy14.GetComponent<BasicEnemy>().rolldupes = 3;
-        enemy14.GetComponent<BasicEnemy>().gaps = 52f;
-        enemy14.GetComponent<BasicEnemy>().firetime = 1.56f;
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().finalPosition += new Vector3(-2.0f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().rolls = 52;
+        anyenemy.GetComponent<BasicEnemy>().rolldupes = 3;
+        anyenemy.GetComponent<BasicEnemy>().gaps = 52f;
+        anyenemy.GetComponent<BasicEnemy>().firetime = 1.56f;
+        anyenemy.GetComponent<BasicEnemy>().color = 1;
         yield return new WaitForSeconds(2.0f);
-        GameObject enemy15 = Instantiate(enemyPrefab);
-        enemy15.GetComponent<BasicEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
-        enemy15.GetComponent<BasicEnemy>().finalPosition += new Vector3(1.0f, 0, 0);
-        enemy15.GetComponent<BasicEnemy>().rolls = 52;
-        enemy15.GetComponent<BasicEnemy>().rolldupes = 3;
-        enemy15.GetComponent<BasicEnemy>().gaps = 52f;
-        enemy15.GetComponent<BasicEnemy>().sign = -1f;
-        enemy15.GetComponent<BasicEnemy>().firetime = 1.56f;
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().finalPosition += new Vector3(1.0f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().rolls = 52;
+        anyenemy.GetComponent<BasicEnemy>().rolldupes = 3;
+        anyenemy.GetComponent<BasicEnemy>().gaps = 52f;
+        anyenemy.GetComponent<BasicEnemy>().sign = -1f;
+        anyenemy.GetComponent<BasicEnemy>().firetime = 1.56f;
+        anyenemy.GetComponent<BasicEnemy>().color = 0;
         yield return new WaitForSeconds(2.0f);
         GameObject enemy16 = Instantiate(enemyPrefab);
         enemy16.GetComponent<BasicEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
@@ -129,11 +145,13 @@ public class EnemySpawner : MonoBehaviour
         enemy16.GetComponent<BasicEnemy>().rolldupes = 3;
         enemy16.GetComponent<BasicEnemy>().gaps = 52f;
         enemy16.GetComponent<BasicEnemy>().firetime = 1.56f;
+        enemy16.GetComponent<BasicEnemy>().color = 1;
         // odd circles with scouts.
         yield return new WaitForSeconds(1.0f);
         GameObject scout17 = Instantiate(scoutEnemyPrefab);
         scout17.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
         scout17.GetComponent<ScoutEnemy>().scoutEnd = 0.7f;
+        scout17.GetComponent<ScoutEnemy>().color = 5;
         yield return new WaitForSeconds(2.0f);
         GameObject enemy17 = Instantiate(enemyPrefab);
         enemy17.GetComponent<BasicEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
@@ -143,10 +161,12 @@ public class EnemySpawner : MonoBehaviour
         enemy17.GetComponent<BasicEnemy>().gaps = 52f;
         enemy17.GetComponent<BasicEnemy>().sign = -1f;
         enemy17.GetComponent<BasicEnemy>().firetime = 1.56f;
+        enemy17.GetComponent<BasicEnemy>().color = 0;
         yield return new WaitForSeconds(1.0f);
         GameObject scout18 = Instantiate(scoutEnemyPrefab);
         scout18.GetComponent<ScoutEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
         scout18.GetComponent<ScoutEnemy>().scoutEnd = 0.7f;
+        scout18.GetComponent<ScoutEnemy>().color = 5;
         yield return new WaitForSeconds(2.0f);
         GameObject enemy18 = Instantiate(enemyPrefab);
         enemy18.GetComponent<BasicEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
@@ -155,16 +175,19 @@ public class EnemySpawner : MonoBehaviour
         enemy18.GetComponent<BasicEnemy>().rolldupes = 3;
         enemy18.GetComponent<BasicEnemy>().gaps = 52f;
         enemy18.GetComponent<BasicEnemy>().firetime = 1.56f;
+        enemy18.GetComponent<BasicEnemy>().color = 1;
         yield return new WaitForSeconds(1.0f);
         GameObject scout19 = Instantiate(scoutEnemyPrefab);
         scout19.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
         scout19.GetComponent<ScoutEnemy>().scoutEnd = 0.7f;
+        scout19.GetComponent<ScoutEnemy>().color = 5;
         
         // pressure scouters!!!
         yield return new WaitForSeconds(6.0f);
         GameObject scout20 = Instantiate(scoutEnemyPrefab);
         scout20.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-3.5f, 0, 0);
         scout20.GetComponent<ScoutEnemy>().scoutEnd = 0.8f;
+        scout20.GetComponent<ScoutEnemy>().color = 4;
         yield return new WaitForSeconds(1.0f);
         GameObject scout21 = Instantiate(scoutEnemyPrefab);
         scout21.GetComponent<ScoutEnemy>().initialPosition += new Vector3(2f, 0, 0);
@@ -173,6 +196,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject scout22 = Instantiate(scoutEnemyPrefab);
         scout22.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-1.0f, 0, 0);
         scout22.GetComponent<ScoutEnemy>().scoutEnd = 0.8f;
+        scout22.GetComponent<ScoutEnemy>().color = 4;
         yield return new WaitForSeconds(1.0f);
         GameObject scout23 = Instantiate(scoutEnemyPrefab);
         scout23.GetComponent<ScoutEnemy>().initialPosition += new Vector3(3.0f, 0, 0);
@@ -181,6 +205,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject scout24 = Instantiate(scoutEnemyPrefab);
         scout24.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-3.5f, 0, 0);
         scout24.GetComponent<ScoutEnemy>().scoutEnd = 0.7f;
+        scout24.GetComponent<ScoutEnemy>().color = 4;
         yield return new WaitForSeconds(1.0f);
         GameObject scout25 = Instantiate(scoutEnemyPrefab);
         scout25.GetComponent<ScoutEnemy>().initialPosition += new Vector3(1.5f, 0, 0);
@@ -189,13 +214,16 @@ public class EnemySpawner : MonoBehaviour
         GameObject scout26 = Instantiate(scoutEnemyPrefab);
         scout26.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-3.0f, 0, 0);
         scout26.GetComponent<ScoutEnemy>().scoutEnd = 0.6f;
+        scout26.GetComponent<ScoutEnemy>().color = 4;
         yield return new WaitForSeconds(1.0f);
         GameObject scout27 = Instantiate(scoutEnemyPrefab);
         scout27.GetComponent<ScoutEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
         scout27.GetComponent<ScoutEnemy>().scoutEnd = 0.3f;
+        scout27.GetComponent<ScoutEnemy>().color = 5;
         yield return new WaitForSeconds(1.0f);
         GameObject scout28 = Instantiate(scoutEnemyPrefab);
         scout28.GetComponent<ScoutEnemy>().scoutEnd = 0.3f;
+        scout28.GetComponent<ScoutEnemy>().color = 5;
         yield return new WaitForSeconds(7.0f);
 
         Manager.Instance.bulletDeleter.DeleteAllBullets();
@@ -205,7 +233,7 @@ public class EnemySpawner : MonoBehaviour
     
 
 
-    public void MakeShootRow()
+    public void MakeShootRow(int color=0)
     {
         
         GameObject anyenemy = null;
@@ -214,7 +242,8 @@ public class EnemySpawner : MonoBehaviour
             anyenemy = Instantiate(scoutEnemyPrefab);
             anyenemy.GetComponent<ScoutEnemy>().initialPosition += new Vector3(i, 0, 0);
             anyenemy.GetComponent<ScoutEnemy>().scoutFrequency = 0.1f;
-            anyenemy.GetComponent<ScoutEnemy>().scoutEnd = 0.5f;
+            anyenemy.GetComponent<ScoutEnemy>().scoutEnd = 0.7f;
+            anyenemy.GetComponent<ScoutEnemy>().color = color;
         }
     }
 
@@ -225,11 +254,11 @@ public class EnemySpawner : MonoBehaviour
         // Second Stage Game!
         StartCoroutine(Manager.Instance.playerMover.Respawn(false));
         // two weak shows
-        MakeShootRow();
+        MakeShootRow(1);
         yield return new WaitForSeconds(3.0f);
-        MakeShootRow();
+        MakeShootRow(2);
         yield return new WaitForSeconds(3.0f);
-        MakeShootRow();
+        MakeShootRow(3);
         yield return new WaitForSeconds(3.0f);
         anyenemy = Instantiate(mainEnemyPrefab);
         yield return new WaitUntil(() => anyenemy == null);

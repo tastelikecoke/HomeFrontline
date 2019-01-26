@@ -40,6 +40,7 @@ public class Scoring : MonoBehaviour
     public void SetCharacter(int characterNum)
     {
         currentCharacterNum = characterNum;
+        Manager.Instance.playerMover.speed = characters[currentCharacterNum].speed;
     }
 
     public void Die()

@@ -8,6 +8,10 @@ public class NovelUI : MonoBehaviour
     public Text charNameText;
     public Text dialogText;
 
+    public GameObject[] spriteLefts;
+    public GameObject[] spriteRights;
+    public GameObject[] bgs;
+
     public int clicks = 0;
 
     public void Awake()
@@ -20,61 +24,113 @@ public class NovelUI : MonoBehaviour
         clicks += 1;
     }
 
+    public void ShowBg(int index)
+    {
+        for(int i=0;i<bgs.Length; i++)
+        {
+            if(i != index)
+                bgs[i].SetActive(false);
+            else
+                bgs[i].SetActive(true);
+        }
+    }
+    public void ShowSprite(bool isLeft, int index)
+    {
+        if(isLeft)
+        {
+            for(int i=0;i<spriteLefts.Length; i++)
+            {
+                if(i != index)
+                    spriteLefts[i].SetActive(false);
+                else
+                    spriteLefts[i].SetActive(true);
+            }
+            
+        }
+        else
+        {
+            for(int i=0;i<spriteRights.Length; i++)
+            {
+                if(i != index)
+                    spriteRights[i].SetActive(false);
+                else
+                    spriteRights[i].SetActive(true);
+            }
+            
+        }
+    }
+
     public void StartDialogOne()
     {
         StartCoroutine(BeginDialogOne());
     }
     public IEnumerator BeginDialogOne()
     {
+        ShowSprite(true, -1);
+        ShowBg(0);
+        ShowSprite(false, -1);
         Exclaim("", "*bell rings*");
         yield return WaitForClick();
         
-        Exclaim("Char1", "Yaaay! School's over!!");
+        ShowSprite(true, 0);
+        Exclaim("Hayabusa", "Yaaay! School's over!!");
         yield return WaitForClick();
 
-        Exclaim("Char1", "Let's go home together!");
+        Exclaim("Hayabusa", "Let's go home together!");
         yield return WaitForClick();
 
-        Exclaim("Char2", "Go home club, huh?");
+        ShowSprite(false, 1);
+        Exclaim("Kounotori", "Go home club, huh?");
         yield return WaitForClick();
 
-        Exclaim("Char3", "I wanna go home too.");
+        ShowSprite(true, 2);
+        Exclaim("Kaguya", "I wanna go home too.");
         yield return WaitForClick();
 
-        Exclaim("Char2", "I'm sure you only want to go home to play video games.");
+        Exclaim("Kounotori", "I'm sure you only want to go home to play video games.");
         yield return WaitForClick();
 
-        Exclaim("Char3", "You don't have to call me out...");
+        Exclaim("Kaguya", "You don't have to call me out...");
         yield return WaitForClick();
 
-        Exclaim("Char1", "Me, I just want to sleep!");
+        ShowSprite(true, 0);
+        ShowSprite(false, -1);
+        Exclaim("Hayabusa", "Me, I just want to sleep!");
         yield return WaitForClick();
 
-        Exclaim("Char2", "same.");
+        ShowSprite(false, 1);
+        Exclaim("Kounotori", "same.");
         yield return WaitForClick();
 
-        Exclaim("Char3", "So are we going home or not?");
+        ShowSprite(false, 2);
+        Exclaim("Kaguya", "So are we going home or not?");
         yield return WaitForClick();
     
-        Exclaim("Char1", "Let's goooo! Go home!");
+        Exclaim("Hayabusa", "Let's goooo! Go home!");
         yield return WaitForClick();
 
+        ShowBg(1);
+        ShowSprite(true, -1);
+        ShowSprite(false, -1);
         Exclaim("", "");
         yield return WaitForClick();
 
-        Exclaim("Char1", "...");
+        ShowSprite(true, 0);
+        Exclaim("Hayabusa", "...");
         yield return WaitForClick();
         
-        Exclaim("Char2", "The path is blocked...");
+        ShowSprite(false, 1);
+        Exclaim("Kounotori", "The path is blocked...");
         yield return WaitForClick();
 
-        Exclaim("Char1", "What's going on here, miss?");
+        ShowSprite(false, -1);
+        Exclaim("Hayabusa", "What's going on here, miss?");
         yield return WaitForClick();
 
         Exclaim("Miss", "Who are you?");
         yield return WaitForClick();
 
-        Exclaim("Char1", "Ummm, Students of Freedom High Interstellar School?");
+        Exclaim("Hayabusa", "Ummm, Students of Freedom High Interstellar School?");
         yield return WaitForClick();
 
         Exclaim("Miss", "Students are not allowed here!");
@@ -83,7 +139,7 @@ public class NovelUI : MonoBehaviour
         Exclaim("Miss", "Get out, or I'll shoot you!");
         yield return WaitForClick();
 
-        Exclaim("Char1", "But we're just going home!");
+        Exclaim("Hayabusa", "But we're just going home!");
         yield return WaitForClick();
 
         Exclaim("Miss", "Lies! Lies!  You are all foreigners! All of you!");
@@ -94,7 +150,12 @@ public class NovelUI : MonoBehaviour
         Exclaim("Miss", "Prepare to DIE!");
         yield return WaitForClick();
 
-        Exclaim("Char1", "Hueee!!");
+        Exclaim("Hayabusa", "Hueee!!");
+        yield return WaitForClick();
+
+        ShowSprite(true, -1);
+        ShowSprite(false, -1);
+        Exclaim("", "It's time to fight...");
         yield return WaitForClick();
 
         this.gameObject.SetActive(false);

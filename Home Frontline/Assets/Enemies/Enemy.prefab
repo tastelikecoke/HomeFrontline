@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6a75f33178ba955409deb43033ddd622, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,10 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5097df9a527ce2645978356d0032eb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 56437386288336351, guid: 326b7a84e1901944e8f25e74543b51e9, type: 3}
-  timer: 0
   counter: 0
-  expiry: 10
   enterCurve:
     serializedVersion: 2
     m_Curve:
@@ -123,6 +120,13 @@ MonoBehaviour:
     m_RotationOrder: 4
   initialPosition: {x: 0, y: 5, z: 0}
   finalPosition: {x: 0, y: 3, z: 0}
+  color: 0
+  rolls: 32
+  rolldupes: 1
+  radiansOffset: 0
+  gaps: 16
+  firetime: 0.64
+  sign: 1
 --- !u!50 &8289285121199147483
 Rigidbody2D:
   serializedVersion: 4

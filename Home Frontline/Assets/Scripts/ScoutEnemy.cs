@@ -9,6 +9,7 @@ public class ScoutEnemy : MonoBehaviour
     public Vector3 initialPosition;
     public float scoutEnd = 0.4f;
     public float scoutFrequency = 0.2f;
+    public int color = 0;
 
     public void Start()
     {
@@ -48,7 +49,7 @@ public class ScoutEnemy : MonoBehaviour
 
     public void SummonBullet(Vector3 spawnPoint, Vector3 velocity)
     {
-        Manager.Instance.bulletDeleter.MakeBullet(spawnPoint, velocity);
+        Manager.Instance.bulletDeleter.MakeBullet(spawnPoint, velocity, color);
     }
 
     void FixedUpdate()

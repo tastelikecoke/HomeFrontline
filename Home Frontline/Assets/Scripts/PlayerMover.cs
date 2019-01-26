@@ -9,12 +9,13 @@ public class PlayerMover : MonoBehaviour
     public bool isRespawning = false;
     public bool isInvulnerable = false;
 
-    public void Start()
-    {
-    }
+    public Sprite[] characterSprites;
+
 
     public void FixedUpdate()
     {
+        
+        ChangeSprite(Manager.Instance.scoring.currentCharacterNum);
         if(isRespawning) return;
 
         Vector3 directionality = Vector3.zero;
@@ -31,6 +32,11 @@ public class PlayerMover : MonoBehaviour
         if(isInvulnerable) return;
         // kill
         StartCoroutine(Respawn(true));
+    }
+
+    public void ChangeSprite(int characterNum)
+    {
+        this.GetComponent<SpriteRenderer>().sprite = characterSprites[characterNum];
     }
 
     public IEnumerator Respawn(bool hasDied)
