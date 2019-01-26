@@ -5,9 +5,54 @@ using UnityEngine;
 public class Scoring : MonoBehaviour
 {
     public int health;
+    public int currentCharacterNum;
+    public int currentScoring;
+
+    [System.Serializable]
+    public class Character
+    {
+        public int maxhealth;
+        public float speed;
+
+        private int health;
+        public void ResetCharacter()
+        {
+            health = maxhealth;
+        }
+
+        public int Health
+        {
+            get { return health; }
+            set { health = value; }
+        }
+    }
+
+    public Character[] characters;
 
     public void Start()
     {
-        
+        for(int i=0;i<characters.Length;i++)
+        {
+            characters[i].ResetCharacter();
+        }
+    }
+
+    public void SetCharacter(int characterNum)
+    {
+        currentCharacterNum = characterNum;
+    }
+
+    public void Die()
+    {
+        characters[currentCharacterNum].Health -= 1;
+        if(characters[currentCharacterNum].Health <= -1)
+        {
+            StartCoroutine(Manager.Instance.GoSwitchCharacter());
+        }
+    }
+
+    public int GetHealth()
+    {
+        return characters[currentCharacterNum].Health;
     }
 }

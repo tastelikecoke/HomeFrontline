@@ -46,4 +46,15 @@ public class BulletDeleter : MonoBehaviour
             }
         }
     }
+
+    public void DeleteAllBullets()
+    {
+        for(int i=0; i<bulletList.Count; i++)
+        {
+            bulletList[i].gameObject.SetActive(false);
+            deadBulletList.Add(bulletList[i]);
+            bulletList.RemoveAt(i);
+            i--;
+        }
+    }
 }
