@@ -21,7 +21,7 @@ public class PlayerMover : MonoBehaviour
         Vector3 directionality = Vector3.zero;
         directionality += new Vector3(1,0,0) * Input.GetAxis("Horizontal");
         directionality += new Vector3(0,1,0) * Input.GetAxis("Vertical");
-        directionality = directionality.normalized * 2f; 
+        directionality = directionality.normalized * 3f; 
         this.GetComponent<Rigidbody2D>().velocity = directionality;
     }
     public void OnTriggerEnter2D(Collider2D collider2D)
@@ -36,11 +36,13 @@ public class PlayerMover : MonoBehaviour
     public IEnumerator Respawn()
     {
         isRespawning = true;
+        this.GetComponent<Collider2D>().isTrigger = true;
         isInvulnerable = true;
         this.transform.position = originalPosition;
         GetComponent<Rigidbody2D>().velocity = new Vector3(0, 2.0f, 0);
         yield return new WaitForSeconds(1.0f);
         isRespawning = false;
+        this.GetComponent<Collider2D>().isTrigger = false;
         yield return new WaitForSeconds(1.0f);
         isInvulnerable = false;
     }

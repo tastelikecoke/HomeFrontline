@@ -33,12 +33,13 @@ public class BasicEnemy : MonoBehaviour
             transform.position = Vector3.Lerp(initialPosition, finalPosition, curveValue);
             yield return null;
         }
+        counter -= 2.0f;
         transform.position = finalPosition;
         yield return null;
         for(int i=0; i<rolls; i++)
         {
             float angle = ((float)i * sign)/gaps * 2*Mathf.PI + radiansOffset;
-            counter = 0f;
+            counter -= (firetime / (float)rolls);
             for(int j=0; j<rolldupes; j++)
             {
                 float dupeangle = ((float)j)/((float)rolldupes) * 2*Mathf.PI + radiansOffset;

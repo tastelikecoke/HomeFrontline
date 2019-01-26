@@ -32,7 +32,7 @@ public class BulletDeleter : MonoBehaviour
         {
             Vector3 bulletposition = bulletList[i].transform.position;
 
-            if(-4.0f < bulletposition.x && bulletposition.x < 4.0f && -5.5f < bulletposition.y && bulletposition.y < 5.5f)
+            if(-5.5f < bulletposition.x && bulletposition.x < 5.5f && -5.5f < bulletposition.y && bulletposition.y < 5.5f)
             {
 
                 // inside

@@ -45,6 +45,7 @@ public class EnemySpawner : MonoBehaviour
         enemy7.GetComponent<BasicEnemy>().rolldupes = 2;
         enemy7.GetComponent<BasicEnemy>().gaps = 32f;
         enemy7.GetComponent<BasicEnemy>().radiansOffset = 0.2f;
+        enemy7.GetComponent<BasicEnemy>().firetime = 1.28f;
         GameObject enemy8 = Instantiate(enemyPrefab);
         enemy8.GetComponent<BasicEnemy>().initialPosition += new Vector3(1.5f, 0, 0);
         enemy8.GetComponent<BasicEnemy>().finalPosition += new Vector3(1.5f, 0, 0);
@@ -53,12 +54,14 @@ public class EnemySpawner : MonoBehaviour
         enemy8.GetComponent<BasicEnemy>().gaps = 32f;
         enemy8.GetComponent<BasicEnemy>().radiansOffset = 0.2f;
         enemy8.GetComponent<BasicEnemy>().sign = -1f;
+        enemy8.GetComponent<BasicEnemy>().firetime = 1.28f;
 
         // heavy single!!
         yield return new WaitForSeconds(3.0f);
         GameObject enemy9 = Instantiate(enemyPrefab);
         enemy9.GetComponent<BasicEnemy>().rolls = 128;
         enemy9.GetComponent<BasicEnemy>().rolldupes = 4;
+        enemy9.GetComponent<BasicEnemy>().firetime = 2.56f;
         enemy9.GetComponent<BasicEnemy>().gaps = 64f;
         enemy9.GetComponent<BasicEnemy>().radiansOffset = 0.1f;
         yield return null;
@@ -69,6 +72,7 @@ public class EnemySpawner : MonoBehaviour
         enemy10.GetComponent<BasicEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
         enemy10.GetComponent<BasicEnemy>().finalPosition += new Vector3(-2.0f, 0, 0);
         enemy10.GetComponent<BasicEnemy>().rolls = 64;
+        enemy10.GetComponent<BasicEnemy>().firetime = 2.56f;
         enemy10.GetComponent<BasicEnemy>().rolldupes = 2;
         enemy10.GetComponent<BasicEnemy>().gaps = 32f;
         enemy10.GetComponent<BasicEnemy>().radiansOffset = 1.2f;
@@ -77,6 +81,7 @@ public class EnemySpawner : MonoBehaviour
         enemy11.GetComponent<BasicEnemy>().finalPosition += new Vector3(2.0f, 0, 0);
         enemy11.GetComponent<BasicEnemy>().rolls = 64;
         enemy11.GetComponent<BasicEnemy>().rolldupes = 2;
+        enemy11.GetComponent<BasicEnemy>().firetime = 2.56f;
         enemy11.GetComponent<BasicEnemy>().gaps = 32f;
         enemy11.GetComponent<BasicEnemy>().radiansOffset = 0.2f;
         enemy11.GetComponent<BasicEnemy>().sign = -1f;
@@ -85,6 +90,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
         GameObject enemy12 = Instantiate(enemyPrefab);
         enemy12.GetComponent<BasicEnemy>().rolls = 128;
+        enemy12.GetComponent<BasicEnemy>().firetime = 2.56f;
         enemy12.GetComponent<BasicEnemy>().rolldupes = 4;
         enemy12.GetComponent<BasicEnemy>().gaps = 64f;
         enemy12.GetComponent<BasicEnemy>().radiansOffset = 0.5f;
@@ -97,6 +103,7 @@ public class EnemySpawner : MonoBehaviour
         enemy13.GetComponent<BasicEnemy>().rolls = 52;
         enemy13.GetComponent<BasicEnemy>().rolldupes = 3;
         enemy13.GetComponent<BasicEnemy>().gaps = 52f;
+        enemy13.GetComponent<BasicEnemy>().firetime = 1.56f;
         enemy13.GetComponent<BasicEnemy>().sign = -1f;
         yield return new WaitForSeconds(2.0f);
         GameObject enemy14 = Instantiate(enemyPrefab);
@@ -105,6 +112,7 @@ public class EnemySpawner : MonoBehaviour
         enemy14.GetComponent<BasicEnemy>().rolls = 52;
         enemy14.GetComponent<BasicEnemy>().rolldupes = 3;
         enemy14.GetComponent<BasicEnemy>().gaps = 52f;
+        enemy14.GetComponent<BasicEnemy>().firetime = 1.56f;
         yield return new WaitForSeconds(2.0f);
         GameObject enemy15 = Instantiate(enemyPrefab);
         enemy15.GetComponent<BasicEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
@@ -113,6 +121,7 @@ public class EnemySpawner : MonoBehaviour
         enemy15.GetComponent<BasicEnemy>().rolldupes = 3;
         enemy15.GetComponent<BasicEnemy>().gaps = 52f;
         enemy15.GetComponent<BasicEnemy>().sign = -1f;
+        enemy15.GetComponent<BasicEnemy>().firetime = 1.56f;
         yield return new WaitForSeconds(2.0f);
         GameObject enemy16 = Instantiate(enemyPrefab);
         enemy16.GetComponent<BasicEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
@@ -120,6 +129,7 @@ public class EnemySpawner : MonoBehaviour
         enemy16.GetComponent<BasicEnemy>().rolls = 52;
         enemy16.GetComponent<BasicEnemy>().rolldupes = 3;
         enemy16.GetComponent<BasicEnemy>().gaps = 52f;
+        enemy16.GetComponent<BasicEnemy>().firetime = 1.56f;
         // odd circles with scouts.
         yield return new WaitForSeconds(1.0f);
         GameObject scout17 = Instantiate(scoutEnemyPrefab);
@@ -133,6 +143,7 @@ public class EnemySpawner : MonoBehaviour
         enemy17.GetComponent<BasicEnemy>().rolldupes = 3;
         enemy17.GetComponent<BasicEnemy>().gaps = 52f;
         enemy17.GetComponent<BasicEnemy>().sign = -1f;
+        enemy17.GetComponent<BasicEnemy>().firetime = 1.56f;
         yield return new WaitForSeconds(1.0f);
         GameObject scout18 = Instantiate(scoutEnemyPrefab);
         scout18.GetComponent<ScoutEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
@@ -144,6 +155,7 @@ public class EnemySpawner : MonoBehaviour
         enemy18.GetComponent<BasicEnemy>().rolls = 52;
         enemy18.GetComponent<BasicEnemy>().rolldupes = 3;
         enemy18.GetComponent<BasicEnemy>().gaps = 52f;
+        enemy18.GetComponent<BasicEnemy>().firetime = 1.56f;
         yield return new WaitForSeconds(1.0f);
         GameObject scout19 = Instantiate(scoutEnemyPrefab);
         scout19.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
