@@ -6,21 +6,14 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public GameObject scoutEnemyPrefab;
-    public void Start()
-    {
-    }
 
-    public void StartStageOne()
-    {
-        StartCoroutine(BeginStageOne());
-    }
+
     public IEnumerator BeginStageOne()
     {
         StartCoroutine(Manager.Instance.playerMover.Respawn(false));
         // First Stage Game!
         // two weak shows
 
-        /*
         GameObject enemy1 = Instantiate(enemyPrefab);
         yield return new WaitForSeconds(4.0f);
         GameObject enemy2 = Instantiate(scoutEnemyPrefab);
@@ -165,7 +158,7 @@ public class EnemySpawner : MonoBehaviour
         GameObject scout19 = Instantiate(scoutEnemyPrefab);
         scout19.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-2.0f, 0, 0);
         scout19.GetComponent<ScoutEnemy>().scoutEnd = 0.7f;
-         */
+        
         // pressure scouters!!!
         yield return new WaitForSeconds(6.0f);
         GameObject scout20 = Instantiate(scoutEnemyPrefab);
@@ -207,6 +200,8 @@ public class EnemySpawner : MonoBehaviour
         Manager.Instance.bulletDeleter.DeleteAllBullets();
         Manager.Instance.overlayUI.GetComponent<OverlayUI>().CheckpointReached("Chapter 1 Finished.");
         yield return new WaitForSeconds(6.0f);
-        
     }
+    
+    
+
 }
