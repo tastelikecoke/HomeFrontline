@@ -8,6 +8,7 @@ public class ScoutEnemy : MonoBehaviour
 
     public Vector3 initialPosition;
     public float scoutEnd = 0.4f;
+    public float scoutFrequency = 0.2f;
 
     public void Start()
     {
@@ -22,11 +23,11 @@ public class ScoutEnemy : MonoBehaviour
         bool isFiring = true;
         while(true)
         {
-            if(isFiring && counter > 0.2f)
+            if(isFiring && counter > scoutFrequency)
             {
                 Vector3 directionality = Manager.Instance.playerMover.transform.position - this.transform.position;
                 SummonBullet(this.transform.position + directionality.normalized * 0.2f, directionality.normalized * 3f);
-                counter = 0f;
+                counter -= scoutFrequency;
             }
             Vector3 enemyviewport = Manager.Instance.gameCam.WorldToViewportPoint(this.transform.position);
             if(enemyviewport.y < scoutEnd)

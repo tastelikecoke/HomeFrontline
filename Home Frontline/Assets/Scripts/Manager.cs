@@ -39,7 +39,7 @@ public class Manager : MonoBehaviour
         yield return enemySpawner.BeginStageOne();
         yield return GoStartDialogTwo();
         yield return GoSwitchCharacter();
-        yield return enemySpawner.BeginStageOne();
+        yield return enemySpawner.BeginStageTwo();
     }
 
     public IEnumerator GoStartDialogOne()

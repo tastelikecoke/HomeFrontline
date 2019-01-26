@@ -74,7 +74,7 @@ public class NovelUI : MonoBehaviour
         Exclaim("Miss", "Who are you?");
         yield return WaitForClick();
 
-        Exclaim("Char1", "Ummm, Students of Andromerica High School?");
+        Exclaim("Char1", "Ummm, Students of Freedom High Interstellar School?");
         yield return WaitForClick();
 
         Exclaim("Miss", "Students are not allowed here!");
@@ -88,7 +88,7 @@ public class NovelUI : MonoBehaviour
 
         Exclaim("Miss", "Lies! Lies!  You are all foreigners! All of you!");
         yield return WaitForClick();
-        Exclaim("Miss", "Japanese spies, pretending to be students...!! what a sham!");
+        Exclaim("Miss", "Japanese immigrants, pretending to be students...!! what a sham!");
         yield return WaitForClick();
 
         Exclaim("Miss", "Prepare to DIE!");
@@ -114,37 +114,37 @@ public class NovelUI : MonoBehaviour
         yield return WaitForClick();
         Exclaim("Char3", "Look over there!");
         yield return WaitForClick();
-        Exclaim("Mister", "We need to build a WALL!");
+        Exclaim("Char1", "That's a lot of people...");
+        yield return WaitForClick();
+        Exclaim("Man", "*shouts* We need to build a WALL!");
         yield return WaitForClick();
         Exclaim("Char1", "Excuse me, a wall?");
         yield return WaitForClick();
-        Exclaim("Mister1", "A wall to keep the immigrants out.");
+        Exclaim("Man", "A wall to keep the immigrants out.");
         yield return WaitForClick();
-        Exclaim("Mister2", "Yes! We need to clear our home free of immigrants!");
+        Exclaim("Bystander", "Yes! We need to clear our home free of immigrants!");
         yield return WaitForClick();
-        Exclaim("Mister1", "Yes! We must clean up our home!");
+        Exclaim("Man", "Yes! We must clean up our home from dirt!");
         yield return WaitForClick();
-        Exclaim("Mister2", "Yes! You will not replace us!");
+        Exclaim("Bystander", "Yes! Since this is OUR home!");
         yield return WaitForClick();
-        Exclaim("Mister1", "Yes! This is OUR home!");
+        Exclaim("Everyone", "OUR home!");
         yield return WaitForClick();
-        Exclaim("Mister2", "OUR home!");
+        Exclaim("Man", "OUR place!");
         yield return WaitForClick();
-        Exclaim("Mister1", "OUR place!");
+        Exclaim("Everyone", "OUR home!");
         yield return WaitForClick();
-        Exclaim("Mister2", "OUR home!");
+        Exclaim("Man", "OUR wall!");
         yield return WaitForClick();
-        Exclaim("Mister1", "OUR rights!");
+        Exclaim("Everyone", "OUR HOME!");
         yield return WaitForClick();
-        Exclaim("Mister2", "OUR home!");
-        yield return WaitForClick();
-        Exclaim("Mister1", "OUR race!");
-        yield return WaitForClick();
-        Exclaim("Mister2", "RAAAHHH!");
+        Exclaim("Man", "OUR WALL!");
         yield return WaitForClick();
         Exclaim("Everyone", "RAAAHHH!");
         yield return WaitForClick();
-        Exclaim("Char1", "Hiii!!! They've gone crazy!");
+        Exclaim("Man", "RAAAHHH!");
+        yield return WaitForClick();
+        Exclaim("Char1", "Huee!!! They've gone crazy!");
         yield return WaitForClick();
         Exclaim("Char2", "They're coming over to fight us!!");
         yield return WaitForClick();
@@ -161,7 +161,7 @@ public class NovelUI : MonoBehaviour
 
     public IEnumerator WaitForClick()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.1f);
         yield return new WaitUntil(() => this.clicks > 0);
         clicks = 0;
     }

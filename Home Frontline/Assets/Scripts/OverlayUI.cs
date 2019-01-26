@@ -13,7 +13,7 @@ public class OverlayUI : MonoBehaviour
         healthtext.text = "";
         for(int i=0; i<Manager.Instance.scoring.GetHealth(); i++)
         {
-            healthtext.text += "<3 ";
+            healthtext.text += "❤";
         }
     }
 
@@ -21,5 +21,10 @@ public class OverlayUI : MonoBehaviour
     {
         checkpoint.SetActive(true);
         scoringtext.text = stage;
+
+    }
+    public void CheckpointStart()
+    {
+        checkpoint.SetActive(false);
     }
 }

@@ -35,34 +35,49 @@ public class MainEnemy : MonoBehaviour
         }
         transform.position = finalPosition;
         yield return null;
-        for(int i=0; i<rolls; i++)
+        
+        // make a wALLL
+        
+        for(float i=-5.5f; i <= 5.5f; i+=.2f)
         {
-            float angle = ((float)i * sign)/gaps * 2*Mathf.PI + radiansOffset;
-            counter = 0f;
-            for(int j=0; j<rolldupes; j++)
-            {
-                float dupeangle = ((float)j)/((float)rolldupes) * 2*Mathf.PI + radiansOffset;
-                Vector3 directionality = new Vector3(Mathf.Cos(angle + dupeangle), Mathf.Sin(angle + dupeangle), 0);
-                this.SummonBullet(this.transform.position + (directionality*0.5f), directionality*1f);
-            }
-            while(counter < (firetime / (float)rolls))
-            {
-                yield return null;
-            }
+            if(2.2f < i && i < 3.7f) continue;
+
+            this.SummonBullet(new Vector3(i, transform.position.y, 0f), new Vector3(0, -3.0f, 0));
         }
-        this.GetComponent<Rigidbody2D>().velocity = new Vector3(0,-2,0);
-        while(true)
+
+        yield return new WaitForSeconds(3f);
+        for(float i=-5.5f; i <= 5.5f; i+=.2f)
         {
-            Vector3 enemyviewport = Manager.Instance.gameCam.WorldToViewportPoint(this.transform.position);
-            if(0 < enemyviewport.x && enemyviewport.x < 1 && 0 < enemyviewport.y && enemyviewport.y < 1)
-            {
-                yield return null;
-            }
-            else
-            {
-                break;
-            }
+            if(-3.2f < i && i < -2.2f) continue;
+            this.SummonBullet(new Vector3(i, transform.position.y, 0f), new Vector3(0, -3.0f, 0));
         }
+        yield return new WaitForSeconds(2.5f);
+        for(float i=-5.5f; i <= 5.5f; i+=.2f)
+        {
+            if(2.9f < i && i < 3.7f) continue;
+            this.SummonBullet(new Vector3(i, transform.position.y, 0f), new Vector3(0, -3.0f, 0));
+        }
+        yield return new WaitForSeconds(1.75f);
+        for(float i=-5.5f; i <= 5.5f; i+=.2f)
+        {
+            if(-2.2f < i && i < -1.0f) continue;
+            this.SummonBullet(new Vector3(i, transform.position.y, 0f), new Vector3(0, -3.0f, 0));
+        }
+        yield return new WaitForSeconds(1.5f);
+        for(float i=-5.5f; i <= 5.5f; i+=.2f)
+        {
+            if(2.0f < i && i < 3f) continue;
+            this.SummonBullet(new Vector3(i, transform.position.y, 0f), new Vector3(0, -3.0f, 0));
+        }
+        yield return new WaitForSeconds(1.5f);
+        for(float i=-5.5f; i <= 5.5f; i+=.2f)
+        {
+            if(-1.5f < i && i < -0f) continue;
+            this.SummonBullet(new Vector3(i, transform.position.y, 0f), new Vector3(0, -3.0f, 0));
+        }
+        yield return new WaitForSeconds(3f);
+
+
         Destroy(this.gameObject);
     }
 

@@ -6,14 +6,15 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public GameObject scoutEnemyPrefab;
+    public GameObject mainEnemyPrefab;
 
 
     public IEnumerator BeginStageOne()
     {
-        StartCoroutine(Manager.Instance.playerMover.Respawn(false));
+        Manager.Instance.overlayUI.GetComponent<OverlayUI>().CheckpointStart();
         // First Stage Game!
+        StartCoroutine(Manager.Instance.playerMover.Respawn(false));
         // two weak shows
-
         GameObject enemy1 = Instantiate(enemyPrefab);
         yield return new WaitForSeconds(4.0f);
         GameObject enemy2 = Instantiate(scoutEnemyPrefab);
@@ -162,11 +163,11 @@ public class EnemySpawner : MonoBehaviour
         // pressure scouters!!!
         yield return new WaitForSeconds(6.0f);
         GameObject scout20 = Instantiate(scoutEnemyPrefab);
-        scout20.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-2.5f, 0, 0);
+        scout20.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-3.5f, 0, 0);
         scout20.GetComponent<ScoutEnemy>().scoutEnd = 0.8f;
         yield return new WaitForSeconds(1.0f);
         GameObject scout21 = Instantiate(scoutEnemyPrefab);
-        scout21.GetComponent<ScoutEnemy>().initialPosition += new Vector3(1.5f, 0, 0);
+        scout21.GetComponent<ScoutEnemy>().initialPosition += new Vector3(2f, 0, 0);
         scout21.GetComponent<ScoutEnemy>().scoutEnd = 0.8f;
         yield return new WaitForSeconds(1.0f);
         GameObject scout22 = Instantiate(scoutEnemyPrefab);
@@ -174,11 +175,11 @@ public class EnemySpawner : MonoBehaviour
         scout22.GetComponent<ScoutEnemy>().scoutEnd = 0.8f;
         yield return new WaitForSeconds(1.0f);
         GameObject scout23 = Instantiate(scoutEnemyPrefab);
-        scout23.GetComponent<ScoutEnemy>().initialPosition += new Vector3(2.0f, 0, 0);
+        scout23.GetComponent<ScoutEnemy>().initialPosition += new Vector3(3.0f, 0, 0);
         scout23.GetComponent<ScoutEnemy>().scoutEnd = 0.7f;
         yield return new WaitForSeconds(1.0f);
         GameObject scout24 = Instantiate(scoutEnemyPrefab);
-        scout24.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-2.5f, 0, 0);
+        scout24.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-3.5f, 0, 0);
         scout24.GetComponent<ScoutEnemy>().scoutEnd = 0.7f;
         yield return new WaitForSeconds(1.0f);
         GameObject scout25 = Instantiate(scoutEnemyPrefab);
@@ -186,7 +187,7 @@ public class EnemySpawner : MonoBehaviour
         scout25.GetComponent<ScoutEnemy>().scoutEnd = 0.6f;
         yield return new WaitForSeconds(1.0f);
         GameObject scout26 = Instantiate(scoutEnemyPrefab);
-        scout26.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-1.0f, 0, 0);
+        scout26.GetComponent<ScoutEnemy>().initialPosition += new Vector3(-3.0f, 0, 0);
         scout26.GetComponent<ScoutEnemy>().scoutEnd = 0.6f;
         yield return new WaitForSeconds(1.0f);
         GameObject scout27 = Instantiate(scoutEnemyPrefab);
@@ -198,10 +199,43 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(7.0f);
 
         Manager.Instance.bulletDeleter.DeleteAllBullets();
-        Manager.Instance.overlayUI.GetComponent<OverlayUI>().CheckpointReached("Chapter 1 Finished.");
+        Manager.Instance.overlayUI.GetComponent<OverlayUI>().CheckpointReached("Chapter 1: Beginning");
         yield return new WaitForSeconds(6.0f);
     }
     
-    
 
+
+    public void MakeShootRow()
+    {
+        
+        GameObject anyenemy = null;
+        for(float i=-5.0f; i<6.0f; i+=1.0f)
+        {
+            anyenemy = Instantiate(scoutEnemyPrefab);
+            anyenemy.GetComponent<ScoutEnemy>().initialPosition += new Vector3(i, 0, 0);
+            anyenemy.GetComponent<ScoutEnemy>().scoutFrequency = 0.1f;
+            anyenemy.GetComponent<ScoutEnemy>().scoutEnd = 0.5f;
+        }
+    }
+
+    public IEnumerator BeginStageTwo()
+    {
+        Manager.Instance.overlayUI.GetComponent<OverlayUI>().CheckpointStart();
+        GameObject anyenemy = null;
+        // Second Stage Game!
+        StartCoroutine(Manager.Instance.playerMover.Respawn(false));
+        // two weak shows
+        MakeShootRow();
+        yield return new WaitForSeconds(3.0f);
+        MakeShootRow();
+        yield return new WaitForSeconds(3.0f);
+        MakeShootRow();
+        yield return new WaitForSeconds(3.0f);
+        anyenemy = Instantiate(mainEnemyPrefab);
+        yield return new WaitUntil(() => anyenemy == null);
+        yield return new WaitForSeconds(4.0f);
+
+        Manager.Instance.overlayUI.GetComponent<OverlayUI>().CheckpointReached("Chapter 2: Wall");
+        Manager.Instance.bulletDeleter.DeleteAllBullets();
+    }
 }
