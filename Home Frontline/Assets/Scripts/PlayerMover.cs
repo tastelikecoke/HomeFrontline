@@ -26,6 +26,8 @@ public class PlayerMover : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collider2D)
     {
+        if(!collider2D.isTrigger)
+            return;
         // kill
         if(isInvulnerable) return;
         StartCoroutine(Respawn());

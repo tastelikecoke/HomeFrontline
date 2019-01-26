@@ -18,6 +18,7 @@ public class Manager : MonoBehaviour
     private static Manager instance;
     public Camera gameCam;
     public BulletDeleter bulletDeleter;
+    public PlayerMover playerMover;
 
     public void Start()
     {

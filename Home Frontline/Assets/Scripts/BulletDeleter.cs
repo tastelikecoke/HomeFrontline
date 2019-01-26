@@ -4,10 +4,26 @@ using UnityEngine;
 
 public class BulletDeleter : MonoBehaviour
 {
+    public GameObject bullet;
     public List<GameObject> bulletList;
-    public void AddBullet(GameObject bullet)
+    public List<GameObject> deadBulletList;
+
+    public void MakeBullet(Vector3 spawnPoint, Vector3 velocity)
     {
-        bulletList.Add(bullet);
+        GameObject newBullet = null;
+        if(deadBulletList.Count == 0)
+        {
+            newBullet = Instantiate(bullet);
+        }
+        else
+        {
+            newBullet = deadBulletList[0];
+            deadBulletList.RemoveAt(0);
+            newBullet.gameObject.SetActive(true);
+        }
+        newBullet.transform.position = spawnPoint;
+        bulletList.Add(newBullet);
+        newBullet.GetComponent<Rigidbody2D>().velocity = velocity;
     }
 
     public void Update()
@@ -15,14 +31,16 @@ public class BulletDeleter : MonoBehaviour
         for(int i=0; i<bulletList.Count; i++)
         {
             Vector3 bulletposition = bulletList[i].transform.position;
-            Vector3 bulletviewport = Manager.Instance.gameCam.WorldToViewportPoint(bulletposition);
-            if(0 < bulletviewport.x && bulletviewport.x < 1 && 0 < bulletviewport.y && bulletviewport.y < 1)
+
+            if(-4.0f < bulletposition.x && bulletposition.x < 4.0f && -5.5f < bulletposition.y && bulletposition.y < 5.5f)
             {
+
                 // inside
             }
             else
             {
-                Destroy(bulletList[i]);
+                bulletList[i].gameObject.SetActive(false);
+                deadBulletList.Add(bulletList[i]);
                 bulletList.RemoveAt(i);
                 i--;
             }

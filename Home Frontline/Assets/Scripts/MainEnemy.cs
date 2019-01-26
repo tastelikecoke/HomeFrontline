@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnemy : MonoBehaviour
+public class MainEnemy : MonoBehaviour
 {
     public float counter = 0.0f;
 
