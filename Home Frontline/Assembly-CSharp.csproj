@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\PlayerMover.cs" />
      <Compile Include="Assets\Scripts\Scoring.cs" />
      <Compile Include="Assets\Scripts\ScoutEnemy.cs" />
+     <Compile Include="Assets\Scripts\Sounder.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/kyon/Desktop/Unity/HomeFrontline/Home Frontline/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

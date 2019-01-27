@@ -25,6 +25,7 @@ public class Manager : MonoBehaviour
     public Canvas chooseUI;
     public Canvas overlayUI;
     public Canvas novelUI;
+    public Sounder sounder;
 
     public void Start()
     {
@@ -35,11 +36,15 @@ public class Manager : MonoBehaviour
     public IEnumerator MasterCR()
     {
         yield return null;
+        sounder.LoopSong(0);
         yield return GoStartDialogOne();
         yield return GoSwitchCharacter();
+        sounder.LoopSong(3);
         yield return enemySpawner.BeginStageOne();
+        sounder.LoopSong(0);
         yield return GoStartDialogTwo();
         yield return GoSwitchCharacter();
+        sounder.LoopSong(2);
         yield return enemySpawner.BeginStageTwo();
     }
 
@@ -75,6 +80,7 @@ public class Manager : MonoBehaviour
     public IEnumerator GoDie()
     {
         Time.timeScale = 0f;
+        sounder.LoopSong(1);
         chooseUI.gameObject.SetActive(false);
         novelUI.gameObject.SetActive(true);
         yield return novelUI.GetComponent<NovelUI>().BeginDialogDie();

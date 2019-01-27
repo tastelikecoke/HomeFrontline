@@ -144,10 +144,10 @@ public class NovelUI : MonoBehaviour
 
         Exclaim("Miss", "Lies! Lies!  You are all foreigners! All of you!");
         yield return WaitForClick();
-        Exclaim("Miss", "Japanese immigrants, pretending to be students...!! what a sham!");
+        Exclaim("Miss", "Mexi-Martian immigrants, pretending to be students...!! what a sham!");
         yield return WaitForClick();
 
-        Exclaim("Miss", "Prepare to DIE!");
+        Exclaim("Miss", "Martians. Prepare to DIE!");
         yield return WaitForClick();
 
         Exclaim("Hayabusa", "Hueee!!");
@@ -189,9 +189,9 @@ public class NovelUI : MonoBehaviour
         ShowSprite(true, -1);
         Exclaim("Man", "A wall to keep the immigrants out.");
         yield return WaitForClick();
-        Exclaim("Bystander", "Yes! We need to clear our home free of immigrants!");
+        Exclaim("Bystander", "Yes! We need to clear our home free of mexi-martian immigrants!");
         yield return WaitForClick();
-        Exclaim("Man", "Yes! We must clean up our home from dirt!");
+        Exclaim("Man", "Yes! We must clean up our home from martian dirt!");
         yield return WaitForClick();
         Exclaim("Bystander", "Yes! Since this is OUR home!");
         yield return WaitForClick();
