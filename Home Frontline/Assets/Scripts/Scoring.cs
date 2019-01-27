@@ -46,9 +46,16 @@ public class Scoring : MonoBehaviour
     public void Die()
     {
         characters[currentCharacterNum].Health -= 1;
+        Manager.Instance.overlayUI.GetComponent<OverlayUI>().LightUp();
         if(characters[currentCharacterNum].Health <= -1)
         {
-            StartCoroutine(Manager.Instance.GoSwitchCharacter());
+            if(characters[1].Health <= -1 && characters[2].Health <= -1 && characters[3].Health <= -1)
+            {
+                StartCoroutine(Manager.Instance.GoDie());
+
+            }
+            else
+                StartCoroutine(Manager.Instance.GoSwitchCharacter());
         }
     }
 

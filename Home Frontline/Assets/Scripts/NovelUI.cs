@@ -130,7 +130,7 @@ public class NovelUI : MonoBehaviour
         Exclaim("Miss", "Who are you?");
         yield return WaitForClick();
 
-        Exclaim("Hayabusa", "Ummm, Students of Freedom High Interstellar School?");
+        Exclaim("Hayabusa", "Ummm, Students of Japan Aerospace Exploration High School?");
         yield return WaitForClick();
 
         Exclaim("Miss", "Students are not allowed here!");
@@ -163,24 +163,30 @@ public class NovelUI : MonoBehaviour
 
     public IEnumerator BeginDialogTwo()
     {
-        Exclaim("Char1", "...");
+        ShowSprite(true, 0);
+        Exclaim("Hayabusa", "...");
         yield return WaitForClick();
-        Exclaim("Char2", "Why are people attacking us?");
+        ShowSprite(false, 1);
+        Exclaim("Kounotori", "Why are people attacking us?");
         yield return WaitForClick();
-        Exclaim("Char1", "I don't know...");
+        Exclaim("Hayabusa", "I don't know...");
+        ShowSprite(false, 2);
         yield return WaitForClick();
-        Exclaim("Char3", "Maybe it has something to do with that gathering?");
+        Exclaim("Kaguya", "Maybe it has something to do with that gathering?");
         yield return WaitForClick();
-        Exclaim("Char3", "Where?");
+        Exclaim("Hayabusa", "Where?");
         yield return WaitForClick();
-        Exclaim("Char3", "Look over there!");
+        Exclaim("Kaguya", "Look over there!");
+        ShowSprite(false, -1);
+        ShowBg(3);
         yield return WaitForClick();
-        Exclaim("Char1", "That's a lot of people...");
+        Exclaim("Hayabusa", "That's a lot of people...");
         yield return WaitForClick();
         Exclaim("Man", "*shouts* We need to build a WALL!");
         yield return WaitForClick();
-        Exclaim("Char1", "Excuse me, a wall?");
+        Exclaim("Hayabusa", "Excuse me, a wall?");
         yield return WaitForClick();
+        ShowSprite(true, -1);
         Exclaim("Man", "A wall to keep the immigrants out.");
         yield return WaitForClick();
         Exclaim("Bystander", "Yes! We need to clear our home free of immigrants!");
@@ -205,11 +211,36 @@ public class NovelUI : MonoBehaviour
         yield return WaitForClick();
         Exclaim("Man", "RAAAHHH!");
         yield return WaitForClick();
-        Exclaim("Char1", "Huee!!! They've gone crazy!");
+        ShowSprite(true, 0);
+        Exclaim("Hayabusa", "Huee!!! They've gone crazy!");
         yield return WaitForClick();
-        Exclaim("Char2", "They're coming over to fight us!!");
+        ShowSprite(false, 1);
+        Exclaim("Kounotori", "They're coming over to fight us!!");
         yield return WaitForClick();
-        Exclaim("Char3", "Let's prepare...");
+        ShowSprite(true, 2);
+        Exclaim("Kaguya", "Let's prepare...");
+        yield return WaitForClick();
+        this.gameObject.SetActive(false);
+    }
+
+    
+    public IEnumerator BeginDialogDie()
+    {
+        ShowBg(4);
+        ShowSprite(true, 0);
+        Exclaim("Hayabusa", "I can no longer go on...");
+        yield return WaitForClick();
+        ShowSprite(false, 1);
+        Exclaim("Kounotori", "What is home anyway?...");
+        yield return WaitForClick();
+        ShowSprite(false, -1);
+        ShowSprite(true, 2);
+        Exclaim("Hayabusa", "Why are we here... just to suffer?");
+        yield return WaitForClick();
+        ShowSprite(true, -1);
+        Exclaim("", "You have failed to go home...");
+        yield return WaitForClick();
+        Exclaim("", "Press to retry.");
         yield return WaitForClick();
         this.gameObject.SetActive(false);
     }

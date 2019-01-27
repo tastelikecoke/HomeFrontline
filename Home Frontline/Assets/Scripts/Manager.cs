@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -34,10 +35,10 @@ public class Manager : MonoBehaviour
     public IEnumerator MasterCR()
     {
         yield return null;
-        //yield return GoStartDialogOne();
-        //yield return GoSwitchCharacter();
-        //yield return enemySpawner.BeginStageOne();
-        //yield return GoStartDialogTwo();
+        yield return GoStartDialogOne();
+        yield return GoSwitchCharacter();
+        yield return enemySpawner.BeginStageOne();
+        yield return GoStartDialogTwo();
         yield return GoSwitchCharacter();
         yield return enemySpawner.BeginStageTwo();
     }
@@ -68,5 +69,17 @@ public class Manager : MonoBehaviour
         chooseUI.gameObject.SetActive(true);
         yield return new WaitUntil(() => chooseUI.gameObject.activeSelf == false);
         Time.timeScale = 1f;
+    }
+
+    
+    public IEnumerator GoDie()
+    {
+        Time.timeScale = 0f;
+        chooseUI.gameObject.SetActive(false);
+        novelUI.gameObject.SetActive(true);
+        yield return novelUI.GetComponent<NovelUI>().BeginDialogDie();
+        yield return new WaitUntil(() => novelUI.gameObject.activeSelf == false);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }

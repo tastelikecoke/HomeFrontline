@@ -38,7 +38,7 @@ public class MainEnemy : MonoBehaviour
         yield return null;
         
         // make a wALLL
-        /* 
+        
         for(float i=-5.5f; i <= 5.5f; i+=.2f)
         {
             if(2.2f < i && i < 3.7f) continue;
@@ -194,7 +194,7 @@ public class MainEnemy : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(2f);
-        */
+        
         for(int j=0; j<5; j++)
         {
             yield return new WaitForSeconds(1f);
@@ -234,7 +234,7 @@ public class MainEnemy : MonoBehaviour
         yield return new WaitForSeconds(2f);
         for(int j=0; j<5; j++)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
             for(float i=-5.5f; i <= 5.5f; i+=.2f)
             {
                 if(1.0f < i && i < 2f) continue;
@@ -244,7 +244,7 @@ public class MainEnemy : MonoBehaviour
             {
                 this.SummonBullet(new Vector3(-5.2f, i, 0f), new Vector3(2f, 0f, 0), 6);
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
             for(float i=-5.5f; i <= 5.5f; i+=.2f)
             {
                 if(-2f < i && i < -1f) continue;
@@ -252,9 +252,27 @@ public class MainEnemy : MonoBehaviour
             }
             for(float i=-5.5f; i <= 5.5f; i+=1f)
             {
-                this.SummonBullet(new Vector3(-5.2f, i, 0f), new Vector3(2f, 0f, 0), 6);
+                this.SummonBullet(new Vector3(5.2f, i, 0f), new Vector3(-2f, 0f, 0), 6);
             }
         }
+        yield return new WaitForSeconds(2f);
+        for(int j=0; j<15; j++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            for(float i=-5.5f; i <= 5.5f; i+=.2f)
+            {
+                if(0f < i && i < 2f) continue;
+                this.SummonBullet(new Vector3(i, 5.2f, 0f), new Vector3(0, -2.0f, 0), 7);
+            }
+            yield return new WaitForSeconds(0.5f);
+            for(float i=-5.5f; i <= 5.5f; i+=.2f)
+            {
+                if(-2f < i && i < 0f) continue;
+                this.SummonBullet(new Vector3(i, 5.2f, 0f), new Vector3(0, -2.0f, 0), 6);
+            }
+        }
+        GetComponent<Rigidbody2D>().velocity = new Vector3(0, -3.0f, 0);
+        yield return new WaitForSeconds(5f);
         Destroy(this.gameObject);
     }
 
