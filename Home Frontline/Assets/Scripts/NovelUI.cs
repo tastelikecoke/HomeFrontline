@@ -155,7 +155,11 @@ public class NovelUI : MonoBehaviour
 
         ShowSprite(true, -1);
         ShowSprite(false, -1);
-        Exclaim("", "It's time to fight...");
+        Exclaim("", "Enemies are coming, get ready!");
+        yield return WaitForClick();
+        Exclaim("", "Use the arrow keys to move!");
+        yield return WaitForClick();
+        Exclaim("", "Survive to the next stage!");
         yield return WaitForClick();
 
         this.gameObject.SetActive(false);
@@ -317,6 +321,58 @@ public class NovelUI : MonoBehaviour
         Exclaim("", "You have failed to go home...");
         yield return WaitForClick();
         Exclaim("", "Press to retry.");
+        yield return WaitForClick();
+        this.gameObject.SetActive(false);
+    }
+
+    public IEnumerator BeginDialogEnd()
+    {
+        ShowBg(5);
+        ShowSprite(true, 0);
+        ShowSprite(false, -1);
+        Exclaim("Hayabusa", "Finally we're home...");
+        yield return WaitForClick();
+        ShowSprite(true, 1);
+        Exclaim("Kounotori", "I'm burning up...");
+        yield return WaitForClick();
+        ShowSprite(true, 2);
+        Exclaim("Kaguya", "Me too...");
+        yield return WaitForClick();
+        ShowSprite(true, 0);
+        Exclaim("Hayabusa", "That's the warmth of our home, guys!");
+        yield return WaitForClick();
+        ShowSprite(true, -1);
+        ShowBg(6);
+        Exclaim("Hayabusa", "The hot abrasive gases of the thermosphere...");
+        yield return WaitForClick();
+        Exclaim("Hayabusa", "The intense cold of the mesosphere...");
+        yield return WaitForClick();
+        Exclaim("Hayabusa", "The tremendous air pressure of the stratosphere...");
+        yield return WaitForClick();
+        Exclaim("Hayabusa", "And finally...");
+        ShowBg(7);
+        yield return WaitForClick();
+        Manager.Instance.sounder.OneShotMusic(4);
+        Exclaim("", "BLAAAAAMMM!!");
+        yield return new WaitForSecondsRealtime(4.0f);
+        Exclaim("", "");
+        ShowBg(8);
+        yield return new WaitForSecondsRealtime(2.0f);
+        Exclaim("Homeland Frontline", "by Team Is a Lung");
+        yield return new WaitForSecondsRealtime(2.0f);
+        Exclaim("Homeland Frontline", "A Global Game Jam Project");
+        yield return new WaitForSecondsRealtime(2.0f);
+        Exclaim("Programmer", "Jeru Mercado");
+        yield return new WaitForSecondsRealtime(2.0f);
+        Exclaim("Artist", "Jeru Mercado");
+        yield return new WaitForSecondsRealtime(2.0f);
+        Exclaim("Audio", "Freesound.org");
+        yield return new WaitForSecondsRealtime(2.0f);
+        ShowSprite(true, 0);
+        yield return WaitForClick();
+        Exclaim("Hayabusa", "Thank you for playing!");
+        yield return WaitForClick();
+        Exclaim("", "Press to restart");
         yield return WaitForClick();
         this.gameObject.SetActive(false);
     }

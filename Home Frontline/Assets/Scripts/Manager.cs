@@ -35,14 +35,7 @@ public class Manager : MonoBehaviour
     
     public IEnumerator MasterCR()
     {
-
-        sounder.LoopSong(0);
-        yield return GoStartDialogThree();
-        yield return GoSwitchCharacter();
-        sounder.LoopSong(8);
-        yield return enemySpawner.BeginStageThree();
-        yield return null;
-        yield break;
+        
         sounder.LoopSong(0);
         yield return GoStartDialogOne();
         yield return GoSwitchCharacter();
@@ -55,7 +48,17 @@ public class Manager : MonoBehaviour
         sounder.LoopSong(2);
         yield return enemySpawner.BeginStageTwo();
 
+        sounder.LoopSong(0);
+        yield return GoStartDialogThree();
+        yield return GoSwitchCharacter();
+        sounder.LoopSong(7);
+        yield return enemySpawner.BeginStageThree();
 
+        sounder.LoopSong(1);
+        yield return GoStartDialogEnd();
+
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     public IEnumerator GoStartDialogOne()
@@ -85,6 +88,16 @@ public class Manager : MonoBehaviour
         yield return new WaitUntil(() => novelUI.gameObject.activeSelf == false);
         Time.timeScale = 1f;
     }
+    public IEnumerator GoStartDialogEnd()
+    {
+        Time.timeScale = 0f;
+        chooseUI.gameObject.SetActive(false);
+        novelUI.gameObject.SetActive(true);
+        yield return novelUI.GetComponent<NovelUI>().BeginDialogEnd();
+        yield return new WaitUntil(() => novelUI.gameObject.activeSelf == false);
+        Time.timeScale = 1f;
+    }
+
 
     public IEnumerator GoSwitchCharacter()
     {
