@@ -18,4 +18,8 @@ public class Sounder : MonoBehaviour
                 loopList[i].Stop();
         }
     }
+    public void OneShotMusic(int index)
+    {
+        loopList[index].Play();
+    }
 }

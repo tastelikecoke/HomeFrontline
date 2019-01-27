@@ -22,6 +22,7 @@ public class ScoutEnemy : MonoBehaviour
         this.GetComponent<Rigidbody2D>().velocity = new Vector3(0,-1.3f,0);
         counter = 0f;
         bool isFiring = true;
+        Manager.Instance.sounder.OneShotMusic(5);
         while(true)
         {
             if(isFiring && counter > scoutFrequency)

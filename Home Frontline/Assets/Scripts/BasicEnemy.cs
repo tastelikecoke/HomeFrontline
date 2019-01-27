@@ -18,6 +18,7 @@ public class BasicEnemy : MonoBehaviour
     public float gaps = 16.0f;
     public float firetime = 0.64f;
     public float sign = 1f;
+    public float bulletMag = 1f;
 
     public void Start()
     {
@@ -37,6 +38,7 @@ public class BasicEnemy : MonoBehaviour
         counter -= 2.0f;
         transform.position = finalPosition;
         yield return null;
+        Manager.Instance.sounder.OneShotMusic(6);
         for(int i=0; i<rolls; i++)
         {
             float angle = ((float)i * sign)/gaps * 2*Mathf.PI + radiansOffset;
@@ -45,7 +47,7 @@ public class BasicEnemy : MonoBehaviour
             {
                 float dupeangle = ((float)j)/((float)rolldupes) * 2*Mathf.PI + radiansOffset;
                 Vector3 directionality = new Vector3(Mathf.Cos(angle + dupeangle), Mathf.Sin(angle + dupeangle), 0);
-                this.SummonBullet(this.transform.position + (directionality*0.5f), directionality*1f);
+                this.SummonBullet(this.transform.position + (directionality*0.5f), directionality*bulletMag);
             }
             while(counter < (firetime / (float)rolls))
             {

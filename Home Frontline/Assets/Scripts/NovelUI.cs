@@ -223,7 +223,83 @@ public class NovelUI : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+
+    public IEnumerator BeginDialogThree()
+    {
+        ShowBg(2);
+        ShowSprite(true, 2);
+        Exclaim("Kaguya", "uughhh.  We're lost!");
+        yield return WaitForClick();
+        ShowSprite(false, 1);
+        Exclaim("Kounotori", "I'm lost as well...");
+        yield return WaitForClick();
+        Exclaim("Kaguya", "Is this even the right way home?!");
+        yield return WaitForClick();
+        ShowSprite(false, 0);
+        Exclaim("Hayabusa", "Don't lose hope, guys!  We'll make it!");
+        yield return WaitForClick();
+        ShowSprite(true, 1);
+        Exclaim("Kounotori", "Are you sure?");
+        yield return WaitForClick();
+        Exclaim("Hayabusa", "No!");
+        yield return WaitForClick();
+        Exclaim("Kounotori", "Hueeeeee??!");
+        yield return WaitForClick();
+        ShowSprite(true, 2);
+        Exclaim("Kaguya", "Hey guys, let's ask this bearded man for directions.");
+        yield return WaitForClick();
+        Exclaim("Hayabusa", "That sounds like a good idea!");
+        yield return WaitForClick();
+        ShowSprite(false, -1);
+        Exclaim("Kaguya", "Hello mister. Do you know where is our home?");
+        yield return WaitForClick();
+        ShowSprite(false, 3);
+        Exclaim("Bearded man", "Home? But what is the name of your home?");
+        yield return WaitForClick();
+        Exclaim("Kaguya", "our home is Earth.");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "EARTH?! Our home?!");
+        yield return WaitForClick();
+        Exclaim("Kaguya", "Hueee??");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "You dare call earth your, and only your home?");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "You dare call earth your private property?!");
+        yield return WaitForClick();
+        Exclaim("Kaguya", "I didn't mean to--");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "Earth should be shared to all of us.");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "Earth is not your private property!");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "Stop exploiting the blue marble called Earth!");
+        yield return WaitForClick();
+        Exclaim("Kaguya", "Hueee??");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "Expropriate your home! Distribute your wealth!");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "The revolution shall begun!");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "And you bourgeoisie students shall die for it!");
+        yield return WaitForClick();
+        ShowSprite(true, 1);
+        Exclaim("Kounotori", "Look at what you did!!");
+        yield return WaitForClick();
+        ShowSprite(true, 2);
+        Exclaim("Kaguya", "Hueee!! I didn't do nothing!");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "RAAAAHH!");
+        yield return WaitForClick();
+        Exclaim("Kaguya", "Hueeeeee!!");
+        yield return WaitForClick();
+        Exclaim("Bearded man", "RAAAAHH!");
+        yield return WaitForClick();
+        Exclaim("Kaguya", "EEEEEEEE!!");
+        yield return WaitForClick();
+        this.gameObject.SetActive(false);
     
+    }
+
     public IEnumerator BeginDialogDie()
     {
         ShowBg(4);

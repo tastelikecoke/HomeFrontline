@@ -267,4 +267,21 @@ public class EnemySpawner : MonoBehaviour
         Manager.Instance.overlayUI.GetComponent<OverlayUI>().CheckpointReached("Chapter 2: Wall");
         Manager.Instance.bulletDeleter.DeleteAllBullets();
     }
+
+    public IEnumerator BeginStageThree()
+    {
+        Manager.Instance.overlayUI.GetComponent<OverlayUI>().CheckpointStart();
+        GameObject anyenemy = null;
+        yield return new WaitForSeconds(3.0f);
+        anyenemy = Instantiate(enemyPrefab);
+        anyenemy.GetComponent<BasicEnemy>().initialPosition += new Vector3(-3.5f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().finalPosition += new Vector3(-3.5f, 0, 0);
+        anyenemy.GetComponent<BasicEnemy>().rolls = 64;
+        anyenemy.GetComponent<BasicEnemy>().rolldupes = 2;
+        anyenemy.GetComponent<BasicEnemy>().gaps = 48f;
+        anyenemy.GetComponent<BasicEnemy>().radiansOffset = 0.7f;
+        anyenemy.GetComponent<BasicEnemy>().firetime = 1.28f;
+        anyenemy.GetComponent<BasicEnemy>().color = 2;
+        anyenemy.GetComponent<BasicEnemy>().bulletMag = 0.5f;
+    }
 }

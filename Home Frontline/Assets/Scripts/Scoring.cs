@@ -47,6 +47,7 @@ public class Scoring : MonoBehaviour
     {
         characters[currentCharacterNum].Health -= 1;
         Manager.Instance.overlayUI.GetComponent<OverlayUI>().LightUp();
+        Manager.Instance.sounder.OneShotMusic(4);
         if(characters[currentCharacterNum].Health <= -1)
         {
             if(characters[1].Health <= -1 && characters[2].Health <= -1 && characters[3].Health <= -1)
