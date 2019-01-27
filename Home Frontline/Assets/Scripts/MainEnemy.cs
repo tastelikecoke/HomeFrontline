@@ -105,25 +105,30 @@ public class MainEnemy : MonoBehaviour
         transform.position = otherPosition;
 
         yield return new WaitForSeconds(1f);
+        Manager.Instance.sounder.OneShotMusic(8);
         for(float i=-5.5f; i <= 5.5f; i+=1f)
         {
             this.SummonBullet(new Vector3(-5.2f, i, 0f), new Vector3(2f, 0f, 0), 6);
         }
+        Manager.Instance.sounder.OneShotMusic(8);
         yield return new WaitForSeconds(2f);
         for(float i=-5.0f; i <= 5.5f; i+=1f)
         {
             this.SummonBullet(new Vector3(5.2f, i, 0f), new Vector3(-2f, 0f, 0), 7);
         }
+        Manager.Instance.sounder.OneShotMusic(8);
         yield return new WaitForSeconds(1.5f);
         for(float i=-5.5f; i <= 5.5f; i+=1f)
         {
             this.SummonBullet(new Vector3(-5.2f, i, 0f), new Vector3(2f, 0f, 0), 6);
         }
+        Manager.Instance.sounder.OneShotMusic(8);
         yield return new WaitForSeconds(1f);
         for(float i=-5.5f; i <= 5.5f; i+=1f)
         {
             this.SummonBullet(new Vector3(i, 5.2f, 0f), new Vector3(0f, -2f, 0), 7);
         }
+        Manager.Instance.sounder.OneShotMusic(8);
         yield return new WaitForSeconds(1f);
         for(float i=-5.5f; i <= 5.5f; i+=1f)
         {
@@ -133,11 +138,13 @@ public class MainEnemy : MonoBehaviour
         {
             this.SummonBullet(new Vector3(5.2f, i, 0f), new Vector3(-2f, 0f, 0), 7);
         }
+        Manager.Instance.sounder.OneShotMusic(8);
         yield return new WaitForSeconds(2f);
         for(float i=-5.5f; i <= 5.5f; i+=1f)
         {
             this.SummonBullet(new Vector3(i, 5.2f, 0f), new Vector3(0f, -2f, 0), 7);
         }
+        Manager.Instance.sounder.OneShotMusic(8);
         yield return new WaitForSeconds(1.5f);
         for(float i=-5.0f; i <= 5.5f; i+=1f)
         {
@@ -151,6 +158,7 @@ public class MainEnemy : MonoBehaviour
         {
             this.SummonBullet(new Vector3(5.2f, i, 0f), new Vector3(-2f, 0f, 0), 7);
         }
+        Manager.Instance.sounder.OneShotMusic(8);
         yield return new WaitForSeconds(1f);
         for(float i=-5.5f; i <= 5.5f; i+=1f)
         {
@@ -168,6 +176,7 @@ public class MainEnemy : MonoBehaviour
         transform.position = finalPosition;
         yield return new WaitForSeconds(1f);
 
+        Manager.Instance.sounder.OneShotMusic(8);
         for(int j=0; j<5; j++)
         {
             yield return new WaitForSeconds(.8f);
@@ -195,6 +204,7 @@ public class MainEnemy : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         
+        Manager.Instance.sounder.OneShotMusic(8);
         for(int j=0; j<5; j++)
         {
             yield return new WaitForSeconds(1f);
@@ -232,6 +242,7 @@ public class MainEnemy : MonoBehaviour
         transform.position = otherPosition;
 
         yield return new WaitForSeconds(2f);
+        Manager.Instance.sounder.OneShotMusic(8);
         for(int j=0; j<5; j++)
         {
             yield return new WaitForSeconds(1.5f);
@@ -259,6 +270,7 @@ public class MainEnemy : MonoBehaviour
         for(int j=0; j<15; j++)
         {
             yield return new WaitForSeconds(0.5f);
+            Manager.Instance.sounder.OneShotMusic(8);
             for(float i=-5.5f; i <= 5.5f; i+=.2f)
             {
                 if(0f < i && i < 2f) continue;

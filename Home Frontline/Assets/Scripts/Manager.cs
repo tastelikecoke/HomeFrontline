@@ -58,7 +58,7 @@ public class Manager : MonoBehaviour
         yield return GoStartDialogEnd();
 
         Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(0);
     }
 
     public IEnumerator GoStartDialogOne()
@@ -118,6 +118,6 @@ public class Manager : MonoBehaviour
         yield return novelUI.GetComponent<NovelUI>().BeginDialogDie();
         yield return new WaitUntil(() => novelUI.gameObject.activeSelf == false);
         Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(0);
     }
 }
